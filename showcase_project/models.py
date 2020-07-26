@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class App():
+class App(models.Model):
     name = models.CharField()
     description = models.CharField()
     url = models.UrlField()
