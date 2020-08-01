@@ -191,28 +191,51 @@
       <div class="w-100">
         <h2 class="mb-5">Education</h2>
 
+        {% for school in schools %}
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
-            <h3 class="mb-0">University of Colorado Boulder</h3>
-            <div class="subheading mb-3">Bachelor of Science</div>
-            <div>Computer Science - Web Development Track</div>
-            <p>GPA: 3.23</p>
+            <h3 class="mb-0">{{ school.study }}</h3>
+            <div class="subheading mb-3">{{ school.name }}</div>
+            <p>
+              GPA: {{ school.gpa }} 
+          </p>
+          <a href="#" class="btn bg-primary text-white" data-toggle="modal" data-target="#GPAModal{{ school.id}}">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+              <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+            </svg>
+            Preview
+          <!-- </button> -->
+          </a>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">August 2006 - May 2010</span>
+            <span class="text-primary">{{ school.start_date | date:"Y" }} - {{ school.end_date | date:"Y" }}</span>
           </div>
         </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">James Buchanan High School</h3>
-            <div class="subheading mb-3">Technology Magnet Program</div>
-            <p>GPA: 3.56</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2002 - May 2006</span>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="GPAModal{{ school.id}}" 
+        tabindex="-1" role="dialog" aria-labelledby="GPAModal{{ school.id}}Label" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="GPAModal{{ school.id}}Label">GPA Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {% for gpa in school.gpa_images.all %}
+                  <img class="img-fluid" src="{{ gpa.file_image.url }}" alt="">
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
+        {% endfor %}
 
       </div>
     </section>
