@@ -113,72 +113,67 @@
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary">
-                {{ experience.start_date | date:"F Y" }} -  {{ experience.end_date | date:"F Y" | default_if_none:"Present" }} 
+                {{ experience.start_date | date:"F Y" }} - 
+                {% if experience.end_date %} {{ experience.end_date | date:"F Y" }} {% else %} Present {% endif %}
               </span>
             </div>
           </div>
         {% endfor %}
-        <hr>
-        <h3 class="mb-3">Tech Stack</h3>
-        <ul class="list-inline dev-icons">
-          <li class="list-inline-item">
-            <i class="fab fa-html5"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-css3-alt"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-js-square"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-angular"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-react"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-node-js"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-sass"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-less"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-wordpress"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-gulp"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-grunt"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fab fa-npm"></i>
-          </li>
+        <hr class="mb-5">
+        <h3 class="mb-3">Tech Stacks</h3>
+        <ul class="list-inline dev-icons mb-3">
+          {% for stack in tech_stacks %}
+            <li class="list-inline-item mb-3">
+              {{ stack.svg | safe | escape }}    
+            </li>
+          {% endfor %}
         </ul>
-        <hr>
+        <hr class="mb-5">
         <h3 class="mb-3">Competition</h3>
-        <ul class="fa-ul mb-0">
+        <ul class="fa-ul mb-5">
+          {% for competition in competitions %}
           <li>
             <i class="fa-li fa fa-trophy text-warning"></i>
-            Google Analytics Certified Developer</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Mobile Web Specialist - Google Certification</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1<sup>st</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1<sup>st</sup>
-            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            2<sup>nd</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
+            {{ competition.description }}  
+            {% if competition.certificates.all %}
+              {% for certificate in competition.certificates.all %}
+                (<a href data-toggle="modal" data-target="#CertificateModal{{ certificate.id}}">Certificate <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+              </svg></a>)
+              {% endfor %}
+            {% endif %}
+          
+          </li>
+
+          {% if competition.certificates.all %}
+           {% for certificate in competition.certificates.all %}
+              <!-- Modal -->
+              <div class="modal fade" id="CertificateModal{{ certificate.id}}" 
+              tabindex="-1" role="dialog" aria-labelledby="CertificateModal{{ certificate.id}}Label" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="CertificateModal{{ certificate.id}}Label">Certificate Preview</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    
+                      <img class="img-fluid" src="{{ certificate.image.url }}" alt="">
+                    
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          {% endfor %}
         </ul>
 
       </div>
@@ -235,6 +230,7 @@
             </div>
           </div>
         </div>
+
         {% endfor %}
 
       </div>

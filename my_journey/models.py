@@ -19,3 +19,17 @@ class Experience(models.Model):
     end_date = models.DateField(null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='experiences')
     accomplishment = models.ManyToManyField(Accomplishment, related_name='experiences', blank=True)
+
+
+class Competition(models.Model):
+    description = models.CharField(max_length=128)
+
+
+class Certificate(models.Model):
+    image = models.ImageField()
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE, related_name='certificates')
+
+
+class TechStack(models.Model):
+    name = models.CharField(max_length=64)
+    svg = models.TextField()

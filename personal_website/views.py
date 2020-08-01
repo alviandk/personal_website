@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from about_me.models import Description, PersonalInformation, ProfilePicture
-from my_journey.models import Experience
+from my_journey.models import Competition, Experience, TechStack
 from education.models import School
 
 
@@ -12,7 +12,9 @@ def home_view(request):
     context['personal_information'] = PersonalInformation.objects.first()
     context['profile_picture'] = ProfilePicture.objects.first()
 
-    context['experiences'] = Experience.objects.all()
+    context['experiences'] = Experience.objects.all().order_by('-start_date')
+    context['competitions'] = Competition.objects.all()
+    context['tech_stacks'] = TechStack.objects.all()
 
     context['schools'] = School.objects.all()
 
