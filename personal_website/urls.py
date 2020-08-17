@@ -19,8 +19,13 @@ from django.contrib import admin
 from django.urls import path
 from .views import home_view
 
+from blog.views import blog_list_view, blog_detail_view
+
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
+    path('blog/', blog_list_view, name='blog'),
+    path('blog_detail_view/', blog_detail_view, name='blog_detail_view'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
