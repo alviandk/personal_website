@@ -20,6 +20,7 @@ from django.urls import path
 from .views import home_view
 
 from blog.views import blog_list_view, blog_detail_view
+from showcase_project.views import project_list_view, project_detail_view
 
 
 urlpatterns = [
@@ -27,5 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', blog_list_view, name='blog'),
     path('blog_detail_view/', blog_detail_view, name='blog_detail_view'),
+    path('project_list_view/', project_list_view, name='project_list_view'),
+    path('project_detail_view/', project_detail_view, name='project_detail_view'),  
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

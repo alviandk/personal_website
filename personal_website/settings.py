@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'about_me',
     'education',
     'my_journey',
+    'showcase_project',
 ]
 
 MIDDLEWARE = [
