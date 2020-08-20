@@ -1,10 +1,12 @@
 {% extends 'base_template.html' %}
     {% load static %}
 
-    {% block title %} Alvian DK - Showcase Project {% endblock title %}
+    {% block title %} Alvian DK - Senior Software Engineer {% endblock title %}
 
   {% block custom_css %}
   <link href="{% static 'css/resume.css' %}" rel="stylesheet">
+  
+  <link href="{% static 'css/skeleton-screen.css' %}" rel="stylesheet">
   
   {% endblock custom_css %}
 
@@ -114,7 +116,7 @@
         <h3 class="mb-3">Competition</h3>
         <ul class="fa-ul mb-5">
           {% for competition in competitions %}
-          <li>
+          <li class="loadAll">
             <i class="fa-li fa fa-trophy text-warning"></i>
             {{ competition.description }}  
             {% if competition.certificates.all %}
@@ -141,10 +143,10 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
-                    
-                      <img class="img-fluid" src="{{ certificate.image.url }}" alt="">
-                    
+                    <div class="modal-body ">    
+                      <div class="placeholder-item placeholder-loading">
+                        <img class="img-fluid lazy " data-src="{{ certificate.image.url }}" alt="">
+                      </div>        
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -201,9 +203,9 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body placeholder-item placeholder-loading">
                 {% for gpa in school.gpa_images.all %}
-                  <img class="img-fluid" src="{{ gpa.file_image.url }}" alt="">
+                  <img class="img-fluid lazy" data-src="{{ gpa.file_image.url }}" alt="">
                 {% endfor %}
               </div>
               <div class="modal-footer">
@@ -226,7 +228,7 @@
         <div class="card mb-4">
           
           <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
+            <h3 class="card-title">Post Title</h3>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
             <a href="#" class="btn bg-primary text-white">Read More...</a>
           </div>
@@ -238,7 +240,7 @@
         <div class="card mb-4">
                   
           <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
+            <h3 class="card-title">Post Title</h3>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
             <a href="#" class="btn bg-primary text-white">Read More ...</a>
           </div>
@@ -321,6 +323,39 @@
 
   <!-- Custom JavaScript for this theme -->
   <script src="{% static 'js/resume.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/jquery.lazy.js' %}"></script>
+
+  <script>
+    $(function() {
+      
+      // $('.loadAll').click(function() {
+      //     $('.lazy').lazy({
+      //         bind: "event",
+      //         delay: 1000,
+      //         afterLoad: function(element) {
+      //           $('.lazy').parent().removeClass('placeholder-loading')
+      //        },
+      //     });
+          
+      // });
+      $('.modal').on('shown.bs.modal', function () {
+        var lazyImage = $(this).find('.lazy')
+        lazyImage.lazy({
+            bind: "event",
+            delay: 700,
+            afterLoad: function(element) {
+              lazyImage.parent().removeClass('placeholder-loading placeholder-item');
+            },
+        });
+      });
+   });
+
+  
+  </script>
+              
+
+
   {% endblock custom_js %}
 
 </body>
