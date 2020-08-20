@@ -19,5 +19,7 @@ def home_view(request):
     context['tech_stacks'] = TechStack.objects.all()
 
     context['schools'] = School.objects.all()
+    
+    context['blog_posts'] = Post.objects.filter(status='PUBLISHED')[:3]
 
     return render(request, 'home.html', context)

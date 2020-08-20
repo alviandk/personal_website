@@ -10,3 +10,4 @@ class Post(models.Model):
         max_length=32
     )
     published_date = models.DateField()
+    slug = models.SlugField(max_length=264, default="")
