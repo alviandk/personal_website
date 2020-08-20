@@ -1,8 +1,10 @@
 from django.shortcuts import render
 
 from about_me.models import Description, PersonalInformation, ProfilePicture
+from blog.models import Post
 from my_journey.models import Competition, Experience, TechStack
 from education.models import School
+from showcase_project.models import App
 
 
 def home_view(request):

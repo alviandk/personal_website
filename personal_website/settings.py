@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about_me',
+    'blog',
     'education',
     'my_journey',
     'showcase_project',

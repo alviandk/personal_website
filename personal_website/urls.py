@@ -16,19 +16,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from .views import home_view
-
-from blog.views import blog_list_view, blog_detail_view
-from showcase_project.views import project_list_view, project_detail_view
 
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('blog/', blog_list_view, name='blog'),
-    path('blog_detail_view/', blog_detail_view, name='blog_detail_view'),
-    path('project_list_view/', project_list_view, name='project_list_view'),
-    path('project_detail_view/', project_detail_view, name='project_detail_view'),  
+    path('blog/', include('blog.urls', namespace='blog')),
+    path('showcase-project/', include('showcase_project.urls', namespace='showcase_project')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

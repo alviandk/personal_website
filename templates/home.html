@@ -37,7 +37,7 @@
           <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">Showcase</a>
+          <a class="nav-link js-scroll-trigger" href="#showcase_project">Showcase</a>
         </li>
       </ul>
     </div>
@@ -251,7 +251,7 @@
         </div>
                 
           <br>
-          <a href="#" class="btn bg-primary text-white float-right">More Blog Posts →</a>
+          <a href="{% url 'blog:post_list' %}" class="btn bg-primary text-white float-right">More Blog Posts →</a>
         </div>
     </section>
 
@@ -259,7 +259,7 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="showcase_project">
       <div class="w-100">
         <h2 class="mb-5">Showcase Projects</h2>
   
@@ -305,7 +305,7 @@
       </div>
     </div>
     <br>
-    <a href="#" class="btn bg-primary text-white float-right">More Projects →</a>
+    <a href="{% url 'showcase_project:project_list' %}"  class="btn bg-primary text-white float-right">More Projects →</a>
   
       </div>
       
@@ -329,16 +329,6 @@
   <script>
     $(function() {
       
-      // $('.loadAll').click(function() {
-      //     $('.lazy').lazy({
-      //         bind: "event",
-      //         delay: 1000,
-      //         afterLoad: function(element) {
-      //           $('.lazy').parent().removeClass('placeholder-loading')
-      //        },
-      //     });
-          
-      // });
       $('.modal').on('shown.bs.modal', function () {
         var lazyImage = $(this).find('.lazy')
         lazyImage.lazy({
