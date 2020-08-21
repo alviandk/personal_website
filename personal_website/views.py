@@ -4,7 +4,7 @@ from about_me.models import Description, PersonalInformation, ProfilePicture
 from blog.models import Post
 from my_journey.models import Competition, Experience, TechStack
 from education.models import School
-from showcase_project.models import App
+from showcase_project.models import Project
 
 
 def home_view(request):
@@ -21,5 +21,7 @@ def home_view(request):
     context['schools'] = School.objects.all()
     
     context['blog_posts'] = Post.objects.filter(status='PUBLISHED')[:3]
+
+    context['project_list'] = Project.objects.all()[:3]
 
     return render(request, 'home.html', context)

@@ -12,58 +12,42 @@
   {% include 'component/navigation.html' %}
 
   <!-- Page Content -->
-  <div class="container">
+  <main role="main">
 
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
-      <h1 class="display-3">A Warm Welcome!</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
-    </header>
-
-    <!-- Page Features -->
-    <div class="row">
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="https://placehold.it/300x200" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="https://placehold.it/300x200" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="https://placehold.it/300x200" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
+    <section class="jumbotron text-center" style="background-color: #ffffff;">
+      <div class="container">
+        <h1>Showcase Project</h1>
+        <p class="lead text-muted">
+          The art of make things done. <br>Software craft, tools, and process. 
+        </p>
+        
       </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
+    </section>
+  
+    <div class="py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% for project in project_list %}
+          <div class="col-md-4 mb-5">
+            <div class="card h-100">
+              <img class="card-img-top" src="{{ project.cover_image.url }}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{ project.name }}</h4>
+                <p class="card-text">{{ project.description | truncatewords:20 }}</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'showcase_project:project_detail' project.slug %}" class="btn btn-info">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+        
+      </div>
+    </div>
+  
+  </main>
 
   {% include 'component/footer.html' %}
   
