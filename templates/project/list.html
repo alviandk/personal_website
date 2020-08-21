@@ -18,7 +18,7 @@
       <div class="container">
         <h1>Showcase Project</h1>
         <p class="lead text-muted">
-          The art of make things done. <br>Software craft, tools, and process. 
+          Software development craft, tools, and process. <br> The art of make things done.
         </p>
         
       </div>
@@ -30,7 +30,7 @@
           {% for project in project_list %}
           <div class="col-md-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="{{ project.cover_image.url }}" alt="">
+              <img class="card-img-top lazy-image-showcase" data-src="{{ project.cover_image.url }}" alt="">
               <div class="card-body">
                 <h4 class="card-title">{{ project.name }}</h4>
                 <p class="card-text">{{ project.description | truncatewords:20 }}</p>
@@ -52,4 +52,18 @@
   {% include 'component/footer.html' %}
   
   {% endblock content %}
+  {% block custom_js %}
 
+  <script type="text/javascript" src="{% static 'js/jquery.lazy.js' %}"></script>
+
+  <script type="text/javascript">
+    $(function() {
+
+      $('.lazy-image-showcase').lazy();
+      
+   });
+  
+  </script>
+            
+
+  {% endblock custom_js %}

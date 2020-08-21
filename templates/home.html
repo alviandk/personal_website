@@ -250,16 +250,20 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="showcase_project">
       <div class="w-100">
-        <h2 class="mb-5">Showcase Projects</h2>
+        <h2 class="mb-3">Showcase Projects</h2>
   
-        <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-        <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
-    <br>
+        <p class="mb-5">
+          The Showcase feature contains experimental and exploratory project portfolios to show my ability to make something. 
+        
+          The portfolio project that I am working on will be varied and there are demos in the form of videos and links 
+          that can be visited for direct viewing. There is also a link to the github repo if you want to see the source code.
+        </p>
+
     <div class="row">
       {% for project in project_list %}
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="{{ project.cover_image.url }}" alt="">
+          <img class="card-img-top lazy-image-showcase" data-src="{{ project.cover_image.url }}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{ project.name }}</h4>
             <p class="card-text">{{ project.description | truncatewords:20 }}</p>
@@ -294,8 +298,10 @@
 
   <script type="text/javascript" src="{% static 'js/jquery.lazy.js' %}"></script>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
+
+      $('.lazy-image-showcase').lazy();
       
       $('.modal').on('shown.bs.modal', function () {
         var lazyImage = $(this).find('.lazy')
