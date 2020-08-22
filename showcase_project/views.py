@@ -14,4 +14,6 @@ def project_list_view(request):
 def project_detail_view(request, slug):
     context = {}
 
+    context['project'] = Project.objects.get(slug=slug)
+
     return render(request, 'project/detail.html', context)
