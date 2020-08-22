@@ -227,9 +227,8 @@
         <h2 class="mb-5">Blog</h2>
         {% for post in blog_posts %}
         <div class="card mb-4">
-                  
           <div class="card-body">
-            <img class="img-fluid rounded lazy-image" style="height: 200px;" data-src="{{ post.cover_image.url }}" alt="">
+            <img class="card-img-top lazy-image" data-src="{{ post.cover_image.url }}" alt="">
             <h3 class="card-title">{{ post.title }}</h3>
             <p class="card-text"> {{ post.summary }} </p>
             <a href="{% url 'blog:post_detail' post.slug %}" class="btn btn-info">Read More ...</a>
