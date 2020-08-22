@@ -6,6 +6,7 @@
   {% block custom_css %}
   <link href="{% static 'css/custom.css' %}" rel="stylesheet">
   <link href="{% static 'css/showcase-project.css' %}" rel="stylesheet">
+  <link href="{% static 'css/skeleton-screen.css' %}" rel="stylesheet">
   {% endblock custom_css %}
 
   {% block content %}
@@ -29,7 +30,9 @@
           {% for project in project_list %}
           <div class="col-md-4 mb-5">
             <div class="card h-100">
-              <img class="card-img-top lazy-image-showcase" data-src="{{ project.cover_image.url }}" alt="">
+              <div class="placeholder-item placeholder-loading" style="height: 200px;">
+                <img class="card-img-top lazy-image" data-src="{{ project.cover_image.url }}" alt="">
+              </div>
               <div class="card-body">
                 <h4 class="card-title">{{ project.name }}</h4>
                 <p class="card-text">{{ project.description | truncatewords:20 }}</p>
@@ -53,16 +56,7 @@
   {% endblock content %}
   {% block custom_js %}
 
-  <script type="text/javascript" src="{% static 'js/jquery.lazy.js' %}"></script>
-
-  <script type="text/javascript">
-    $(function() {
-
-      $('.lazy-image-showcase').lazy();
-      
-   });
-  
-  </script>
+  {% include 'component/lazy_image_js.html' %}
             
 
   {% endblock custom_js %}

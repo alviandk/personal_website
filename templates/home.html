@@ -229,6 +229,7 @@
         <div class="card mb-4">
                   
           <div class="card-body">
+            <img class="img-fluid rounded lazy-image" style="height: 200px;" data-src="{{ post.cover_image.url }}" alt="">
             <h3 class="card-title">{{ post.title }}</h3>
             <p class="card-text"> {{ post.summary }} </p>
             <a href="{% url 'blog:post_detail' post.slug %}" class="btn btn-info">Read More ...</a>
@@ -263,7 +264,7 @@
       {% for project in project_list %}
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top lazy-image-showcase" data-src="{{ project.cover_image.url }}" alt="">
+          <img class="card-img-top lazy-image" data-src="{{ project.cover_image.url }}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{ project.name }}</h4>
             <p class="card-text">{{ project.description | truncatewords:20 }}</p>
@@ -301,7 +302,7 @@
   <script type="text/javascript">
     $(function() {
 
-      $('.lazy-image-showcase').lazy();
+      $('.lazy-image').lazy();
       
       $('.modal').on('shown.bs.modal', function () {
         var lazyImage = $(this).find('.lazy')
@@ -309,7 +310,7 @@
             bind: "event",
             delay: 700,
             afterLoad: function(element) {
-              lazyImage.parent().removeClass('placeholder-loading placeholder-item');
+              element.parent().removeClass('placeholder-loading placeholder-item');
             },
         });
       });

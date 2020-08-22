@@ -1,0 +1,18 @@
+{% load static %}
+
+<script type="text/javascript" src="{% static 'js/jquery.lazy.js' %}"></script>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('.lazy-image').lazy({
+            bind: "event",
+            delay: 700,
+            afterLoad: function(element) {
+                element.parent().removeClass('placeholder-loading placeholder-item');
+            },
+        });
+        
+    });
+
+</script>

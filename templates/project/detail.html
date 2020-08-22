@@ -7,6 +7,7 @@
   <link href="{% static 'css/custom.css' %}" rel="stylesheet">
   <link href="{% static 'css/showcase-project.css' %}" rel="stylesheet">
   <link href="{% static 'css/showcase-detail.css' %}" rel="stylesheet">
+  <link href="{% static 'css/skeleton-screen.css' %}" rel="stylesheet">
   {% endblock custom_css %}
 
   {% block content %}
@@ -34,7 +35,9 @@
     <div class="container">
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-6 col-lg-6">
-          <img class="img-fluid mb-3 mb-lg-0" src="{{ project.cover_image.url }}" alt="">
+          <div class="placeholder-item placeholder-loading">
+            <img class="img-fluid mb-3 mb-lg-0 lazy-image" data-src="{{ project.cover_image.url }}" alt="">
+          </div>
         </div>
         <div class="col-xl-6 col-lg-6">
             <div class="featured-text text-center text-lg-left">
@@ -77,9 +80,7 @@
   {% endblock content %}
 
   {% block custom_js %}
-  <!-- Plugin JavaScript -->
-  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
-  <!-- Custom JavaScript for this theme -->
-  <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    {% include 'component/lazy_image_js.html' %}
+
   {% endblock custom_js %}
