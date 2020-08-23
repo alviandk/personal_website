@@ -83,17 +83,10 @@
         <h3 class="mb-3">Experience</h3>
 
         {% for experience in experiences %}
-          <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-4">
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
             <div class="resume-content">
               <h4 class="mb-0">{{ experience.role }}</h4>
               <div class="subheading mb-2">{{ experience.company.name }}</div>
-              {% if experience.accomplishment %}
-                <ul>
-                  {% for accomplishment in experience.accomplishment.all %}
-                    <li>{{ accomplishment.description }}</li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary">
@@ -102,6 +95,13 @@
               </span>
             </div>
           </div>
+          {% if experience.accomplishment %}
+                <ul class="mb-4">
+                  {% for accomplishment in experience.accomplishment.all %}
+                    <li>{{ accomplishment.description }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
         {% endfor %}
         <hr class="mb-5">
         <h3 class="mb-3">Tech Stacks</h3>
@@ -168,15 +168,27 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
       <div class="w-100">
-        <h2 class="mb-5">Education</h2>
-
+        <h2 class="mb-0">Education</h2>
+        <!-- <p class="mb-5">
+          Education consists of a sub menu of schools that I have been to, 
+          scientific writing that I write to achieve graduation, as well as my collaborations with other people in 
+          helping their scientific writing.
+        </p>
+        <h3 class="mb-3">School</h3> -->
         {% for school in schools %}
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h3 class="mb-0">{{ school.study }}</h3>
-            <div class="subheading mb-3">{{ school.name }}</div>
-            <p>
-              GPA: {{ school.gpa }} 
+            <h4 class="mb-0">{{ school.study }}</h4>
+            <div class="subheading mb-2">{{ school.name }}</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ school.start_date | date:"Y" }} - {{ school.end_date | date:"Y" }}</span>
+          </div>
+          
+        </div>
+        <div class="mb-5">
+          <p>
+            GPA: {{ school.gpa }} 
           </p>
           <a href="#" class="btn btn-info" data-toggle="modal" data-target="#GPAModal{{ school.id}}">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -186,10 +198,6 @@
             Preview
           <!-- </button> -->
           </a>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">{{ school.start_date | date:"Y" }} - {{ school.end_date | date:"Y" }}</span>
-          </div>
         </div>
         
         <!-- Modal -->
@@ -216,6 +224,45 @@
         </div>
 
         {% endfor %}
+
+        <!-- <hr class="mb-5">
+        <h3 class="mb-3">Thesis</h3>
+        <div class="row">
+          {% for project in project_list %}
+          <div class="col-md-4 mb-5">
+            <div class="card h-100">
+              <img class="card-img-top lazy-image" data-src="{{ project.cover_image.url }}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{ project.name }}</h4>
+                <p class="card-text">{{ project.description | truncatewords:20 }}</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'showcase_project:project_detail' project.slug %}" class="btn btn-info">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+        <hr class="mb-5">
+        <h3 class="mb-3">Thesis Collaboration</h3>
+        <div class="row">
+          {% for project in project_list %}
+          <div class="col-md-4 mb-5">
+            <div class="card h-100">
+              <img class="card-img-top lazy-image" data-src="{{ project.cover_image.url }}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">{{ project.name }}</h4>
+                <p class="card-text">{{ project.description | truncatewords:20 }}</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'showcase_project:project_detail' project.slug %}" class="btn btn-info">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div> -->
 
       </div>
     </section>
