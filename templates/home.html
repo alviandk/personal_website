@@ -107,7 +107,7 @@
         <h3 class="mb-3">Tech Stacks</h3>
         <ul class="list-inline dev-icons mb-3">
           {% for stack in tech_stacks %}
-            <li class="list-inline-item mb-3">
+            <li class="list-inline-item mb-3" data-toggle="tooltip" data-placement="top" title="{{ stack.name }}">
               {{ stack.svg | safe | escape }}    
             </li>
           {% endfor %}
