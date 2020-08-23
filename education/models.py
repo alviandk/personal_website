@@ -23,3 +23,20 @@ class Thesis(models.Model):
 
 class ThesisMentor(models.Model):
     thesis = models.ForeignKey(Thesis, on_delete=models.CASCADE, related_name='mentors')
+
+"""
+S1 Skripsi
+- Firda summaryzation
+- Dita bepy
+- Dea avcweb
+- Noval 
+- Alvian animetachi
+
+S2 Tesis
+- Nurul Test
+- Alvian monte carlo pymc
+
+S3 Doctor
+- Yuhilza neupy
+
+"""
