@@ -40,7 +40,7 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on {{ post.published_date }}</p>
+        <p>Posted in category <a href="#">Opinion</a> on {{ post.published_date }}</p>
 
         <hr>
 
@@ -52,6 +52,13 @@
 
         <!-- Post Content -->
         {{ post.content | linebreaks }}
+        <hr>
+
+        <p>
+          <b>Tags:</b> <br> 
+          <span class="badge badge-pill badge-primary">Python</span>
+          <span class="badge badge-pill badge-secondary">Django</span>
+        </p>
         <hr>
 
         <!-- Comments Form -->
