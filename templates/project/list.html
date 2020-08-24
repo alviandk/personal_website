@@ -26,6 +26,14 @@
   
     <section id="about">
       <div class="container">
+        <div class="mb-5">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Showcase Project</li>
+            </ol>
+          </nav>
+        </div>
         <div class="row">
           {% for project in project_list %}
           <div class="col-md-4 mb-5">
