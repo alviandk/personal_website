@@ -1,5 +1,6 @@
 {% extends 'base_template.html' %}
     {% load static %}
+    {% load string_filter %}
 
     {% block title %} Alvian DK - Senior Software Engineer {% endblock title %}
 
@@ -51,7 +52,7 @@
           <span class="text-primary">DK</span>
         </h1>
         <div class="subheading mb-5">{{ personal_information.location }} ·
-          <a href="#">{{ personal_information.email }}</a>
+          <a href="#">{{ personal_information.email | replace_at | replace_dot }}</a>
         </div>
         <p class="lead mb-5">
             {{ description.long_version }}
