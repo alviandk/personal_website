@@ -1,88 +1,25 @@
-# Personal Website
+# Overview
+Website Pribadi merupakan salah satu sarana bagi software developer untuk menunjukkan kemampuan serta menaikkan nilai jual. Website yang dibuat biasanya berisi deskripsi, pengalaman, skill, blog, dan lain lain. Pada umumnya website pribadi yang dibuat oleh developer bersifat statis dalam penulisan kontennya. Artinya, konten tulisan yang bisa dibaca oleh orang lain langsung ditulis pada halaman websitenya. Lawannya adalah web dengan konten yang dinamis, biasanya konten dinamis bisa diubah dengan fitur cms. Konten yang statis cenderung kurang fleksibel apabila ingin diubah apabila dibandingkan dengan konten yang bersifat dinamis. Oleh karena itu, saya ingin membuat website pribadi yang bersifat dinamis. Sehingga untuk mengubah atau menambah isi kontennya lebih mudah. Selain konten yang dinamis, website pribadi yang saya buat memiliki beberapa fitur untuk lebih menjual skill saya. 
 
-One Paragraph of project description goes here
+# Functional Requirement
+Fitur yang akan dibuat diantaranya About Me, Journey, Education, Blog, dan Showcase.
+## About Me
+Fitur About Me untuk memperkenalkan identitas pribadi saya berupa nama, title, deskripsi singkat, email, dan beberapa link social media yang berhubungan dengan skill profesional seperti linkedin dan github. Ada juga bagian interest yang berisi tentang topik dalam software development yang saya kuasai maupun ingin dipahami lebih lanjut. Pada fitur about me juga terdapat menu download resume untuk mendownload resume dalam versi pdf. Konten resume juga bersifat dinamis dan bisa diatur lewat cms untuk info apa saja yang ingin saya tampilkan.
 
-## Getting Started
+## Journey
+Fitur Journey berisi sub menu experience, tech stack dan competition. Menu experience berisi tentang pengalaman profesional saya dalam bekerja sebagai software developer. Tech stack adalah nama nama technology berupa bahasa pemrograman, framework, library, maupun tools yang saya kuasai dalam mendevelop software. Competition models berisi kompetisi apa saja  yang pernah saya ikuti maupun saya juarai.  
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Education
+Fitur Education terdiri dari sub menu pendidikan yang pernah saya jalani, penulisan ilmiah yang saya tulis untuk mencapai kelulusan, serta kolaborasi saya dengan orang lain dalam membantu penulisan ilmiah mereka.
 
-### Prerequisites
+## Blog
+Fitur Blog sama dengan fitur blog pada umumnya. Berisi tulisan-tulisan yang saya tulis secara pribadi yang berhubungan dengan technology. Tipe penulisan dapat dalam bentuk cerita, opini, tutorial step by step, penjelasan tentang bagaimana cara kerja teknologi, maupun review tentang teknologi yang pernah saya pakai.
 
-What things you need to install the software and how to install them
+## Showcase
+Fitur Showcase berisi tentang project portfolio yang bersifat eksperimental maupun eksplore untuk menunjukkan kemampuan saya dalam membuat sesuatu. Project portfolio yang saya kerjakan akan bersifat variatif dan terdapat demo berupa video serta link yang dapat dikunjungi untuk melihat langsung. Terdapat juga link ke repo github apabila ingin melihat source code secara langsung.
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+# Technical Requirement
+* Bahasa Pemrograman: Python
+* Web Framework: Django
+* Platform: Web Browser
 
