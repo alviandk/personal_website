@@ -24,4 +24,4 @@ Fitur Showcase berisi tentang project portfolio yang bersifat eksperimental maup
 * Platform: Web Browser
 
 # Wiki
-[PRD of the Website] (https://github.com/alviandk/personal_website/wiki/PRD---Alvian's-Personal-Website)
+* [PRD of the Website](https://github.com/alviandk/personal_website/wiki/PRD---Alvian's-Personal-Website)
