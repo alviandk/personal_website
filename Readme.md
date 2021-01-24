@@ -23,3 +23,5 @@ Fitur Showcase berisi tentang project portfolio yang bersifat eksperimental maup
 * Web Framework: Django
 * Platform: Web Browser
 
+# Wiki
+* [PRD of the Website](https://github.com/alviandk/personal_website/wiki/PRD---Alvian's-Personal-Website)
