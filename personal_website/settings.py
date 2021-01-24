@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'personal_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db-personal.sqlite3'),
     }
 }
 
@@ -136,3 +136,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'django_oss_storage.backends.OssStaticStorage'
+
+DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
+
+OSS_ACCESS_KEY_ID = os.environ['OSS_ACCESS_KEY_ID']
+
+# AliCloud access key secret
+OSS_ACCESS_KEY_SECRET = os.environ['OSS_ACCESS_KEY_SECRET']
+
+OSS_BUCKET_NAME = os.environ['OSS_BUCKET_NAME']
+
+# The URL of AliCloud OSS endpoint
+# Refer https://www.alibabacloud.com/help/zh/doc-detail/31837.htm for OSS Region & Endpoint
+OSS_ENDPOINT = os.environ['OSS_ENDPOINT']
