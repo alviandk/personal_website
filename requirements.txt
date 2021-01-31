@@ -3,3 +3,4 @@ django-oss-storage
 gunicorn
 mysqlclient
 Pillow==7.2.0
+django-ckeditor==6.0.0

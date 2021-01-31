@@ -22,7 +22,8 @@ from .views import home_view
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('resepsionis-alvian/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
     path('showcase-project/', include('showcase_project.urls', namespace='showcase_project')),
     

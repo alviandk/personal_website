@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
+    'ckeditor_uploader',
+
     'about_me',
     'blog',
     'education',
@@ -84,7 +88,7 @@ WSGI_APPLICATION = 'personal_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db-personal.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -133,9 +137,11 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'django_oss_storage.backends.OssStaticStorage'
 
@@ -151,3 +157,7 @@ OSS_BUCKET_NAME = os.environ['OSS_BUCKET_NAME']
 # The URL of AliCloud OSS endpoint
 # Refer https://www.alibabacloud.com/help/zh/doc-detail/31837.htm for OSS Region & Endpoint
 OSS_ENDPOINT = os.environ['OSS_ENDPOINT']
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+CKEDITOR_IMAGE_BACKEND = "pillow"
