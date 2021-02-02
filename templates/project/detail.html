@@ -21,12 +21,12 @@
         <a href="{{ project.git_url }}">
           <i class="fab fa-git-square"></i>
         </a>
-        <a href="{{ project.url }}">
+        <!-- <a href="{{ project.url }}">
           <i class="fab fa-wpexplorer"></i>
         </a>
         <a href="{{ project.youtube_url }}">
           <i class="fab fa-youtube"></i>
-        </a>
+        </a> -->
       </div>
     </div>
   </header>
@@ -52,7 +52,7 @@
             <div class="featured-text text-left text-lg-left">
                 <h2>Description</h2>
                 <p class="text-black-50 mb-0">
-                  {{ project.description }}
+                  {{ project.description | linebreaks }}
                 </p>
             </div>
         </div>
@@ -61,7 +61,7 @@
     </div>
   </section>
 
-  <section id="services">
+  <!-- <section id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
@@ -82,23 +82,22 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   
 
-  <section id="contact" class="bg-light">
+  <!-- <section id="contact" class="bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>Preview</h2>
-          <!-- <p class="lead mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p> -->
-          <div class="embed-responsive embed-responsive-16by9">
+           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   {% include 'component/footer.html' %}
 
