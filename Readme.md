@@ -1,3 +1,4 @@
+![](personal.PNG)
 # Overview
 Website Pribadi merupakan salah satu sarana bagi software developer untuk menunjukkan kemampuan serta menaikkan nilai jual. Website yang dibuat biasanya berisi deskripsi, pengalaman, skill, blog, dan lain lain. Pada umumnya website pribadi yang dibuat oleh developer bersifat statis dalam penulisan kontennya. Artinya, konten tulisan yang bisa dibaca oleh orang lain langsung ditulis pada halaman websitenya. Lawannya adalah web dengan konten yang dinamis, biasanya konten dinamis bisa diubah dengan fitur cms. Konten yang statis cenderung kurang fleksibel apabila ingin diubah apabila dibandingkan dengan konten yang bersifat dinamis. Oleh karena itu, saya ingin membuat website pribadi yang bersifat dinamis. Sehingga untuk mengubah atau menambah isi kontennya lebih mudah. Selain konten yang dinamis, website pribadi yang saya buat memiliki beberapa fitur untuk lebih menjual skill saya. 
 
