@@ -9,3 +9,10 @@ class Project(models.Model):
     git_url = models.URLField()
     youtube_url = models.URLField()
     slug = models.SlugField(default="")
+    ordering = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["ordering"]
