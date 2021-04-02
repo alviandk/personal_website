@@ -55,7 +55,7 @@
           <a href="#">{{ personal_information.email | replace_at | replace_dot }}</a>
         </div>
         <p class="lead mb-5">
-            {{ description.long_version }}
+            {{ description.long_version | linebreaks }}
         </p>
         <div class="social-icons">
           <a href="{{ personal_information.linkedin }}">
